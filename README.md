@@ -1,6 +1,6 @@
 # 셀바스헬스케어 AI 실습 교실
 
-Google Workspace로 제품 이력 조회 업무를 개선하는 PBL 교육자료입니다.
+Cloud Agent Designer로 기업용 제품 이력 에이전트를 만드는 PBL 교육자료입니다.
 비개발자도 **문제 정의 → 작은 실험 → 원천 대조 → 개선 기록** 순서로 참여합니다.
 
 **[노션 교육 홈](https://app.notion.com/p/freshmea/3f9123060ee780ddb01ee56de869e9ea)** · **[전체 자료 ZIP](https://github.com/freshmea/selvas-ai-training-2026/archive/refs/heads/main.zip)** · **[질문 등록](https://github.com/freshmea/selvas-ai-training-2026/issues/new/choose)**
@@ -21,7 +21,7 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | --- | --- | --- |
 | [교육 안내](docs/start.md) | 계정 준비와 공유 방식 | 이용 가능 |
 | [5일 커리큘럼](docs/curriculum.md) | 외부 코칭 5일 × 4시간 | 운영안 |
-| [1일차](lessons/day01.md) | 제품번호·빈칸·공백·중복 실험 | 이용 가능 |
+| [1일차](lessons/day01.md) | 데이터 규칙·Agent 지침·Preview·새 세션 실험 | 이용 가능 |
 | [가상 데이터](samples/README.md) | 기본·정제 실습 CSV, 각 24행 | 이용 가능 |
 | [NotebookLM](notebooklm/README.md) | 가상 문서 4종, 질문 10개, 갱신 미션 | 이용 가능 |
 | [활동지](worksheets/) | PBL 기록지·NotebookLM 활동지·제출 양식 | 이용 가능 |

@@ -4,8 +4,8 @@
 
 - [ ] 노트북과 웹 브라우저를 준비합니다.
 - [ ] 수업에 사용할 Google 계정으로 로그인합니다.
-- [ ] Google Drive·Sheets·Chat을 열 수 있는지 확인합니다.
-- [ ] Workspace Studio는 회사 계정에서 접근 가능한지 확인합니다.
+- [ ] Google Drive·Sheets와 승인된 Cloud Agent Designer 실습 환경을 확인합니다.
+- [ ] Cloud 프로젝트·제작 권한·자료 접근·모델 한도를 확인합니다. Workspace Studio는 사용하지 않습니다.
 - [ ] 배포 ZIP을 내려받고 원본과 개인 실습본을 구분합니다.
 - [ ] 질문을 남길 경우 GitHub 계정을 준비합니다. 자료 열람에는 로그인이 필요하지 않습니다.
 
