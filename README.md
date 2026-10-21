@@ -23,7 +23,7 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | [5일 커리큘럼](docs/curriculum.md) | 외부 코칭 5일 × 4시간 | 운영안 |
 | [1일차](lessons/day01.md) | 데이터 규칙·Agent 지침·Preview·새 세션 실험 | 이용 가능 |
 | [3일차 보충 실습](lessons/day03.md) | 텍스트 앱 공유·npm 설치 실패·배포 재현성 | 이용 가능 |
-| [앱 빌더 단계별 프롬프트](prompts/product-history-from-scratch.md) | 전체 코드 복사 없이 제품이력 조회·문맥·실제 Agent 연결 생성 | 프롬프트 제공·실행 상태 문서 참조 |
+| [앱 빌더 기능 생성 프롬프트](prompts/product-history-from-scratch.md) | 전체 코드 복사 없이 제품이력 조회·문맥·실제 Agent 연결 요구 | 프롬프트 제공·실행 상태 문서 참조 |
 | [배포 오류 진단 교안](docs/deployment/text-sharing-build-failures.md) | 사례 분석·AI 수정 요청문·lockfile·검증 기록지 | 이용 가능 |
 | [가상 데이터](samples/README.md) | 기본·정제 실습 CSV, 각 24행 | 이용 가능 |
 | [NotebookLM](notebooklm/README.md) | 가상 문서 4종, 질문 10개, 갱신 미션 | 이용 가능 |
