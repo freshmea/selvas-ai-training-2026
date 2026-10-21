@@ -64,3 +64,17 @@ Google의 [Agent Studio 배포 안내](https://docs.cloud.google.com/gemini-ente
 - 별도 외부 HTTP: 인증 헤더 없이 200, 응답 HTML에 Hello, world 포함 확인.
 
 따라서 이 소스의 빌드·공개 실행 문제는 실제로 해결됐다. 앱 빌더 자동 템플릿의 영구 수정이나 제품이력 앱의 동일 수정 완료를 뜻하지 않는다. 계정별 실제 URL·빌드 ID·원시 화면은 비공개 실험 기록에 보관했다.
+
+## 필수 인수 시험: 프롬프트 수정 후 기본 버튼 재배포 — 실패
+
+사용자는 베이스라인의 완료 조건을 **앱 빌더 프롬프트로 Hello, world → Edited world 수정 → 앱 업데이트 버튼 → 빌드 성공 → 공개 URL에서 변경 확인**으로 명확히 했다. 앞의 gcloud 직접 배포 성공만으로 이 조건을 충족하지 못한다.
+
+2026-10-21 23:00 KST 실제 결과:
+
+1. gemini-3.7-flash와 gemini-3.5-flash-lite 수정 요청은 Resource exhausted로 롤백됐다. gemini-2.5-pro에서는 프롬프트 수정과 체크포인트 저장이 성공했다. 직접 코드 편집은 하지 않았다.
+2. 미리보기에서 Edited world를 확인하고 앱 빌더의 배포 → Cloud Run → 앱으로 배포 → 앱 업데이트 → 확인으로 진행했다.
+3. 실제 새 Linux Cloud Build는 **36초 후 동일한 edgesOut 오류로 실패**했다.
+4. 새 빌드의 실제 ZIP을 gcloud로 내려받아 확인했다. index.html·App.tsx에는 Edited world가 들어갔지만, Dockerfile은 다시 두 단계 모두 node:20-slim과 루트 npm install을 사용했고 **lockfile 목록은 빈 배열**이었다. 앞서 수정한 Node/npm/lockfile 설정은 기본 버튼의 생성 결과에 유지되지 않았다.
+5. 공개 URL을 다시 확인하니 HTTP 200이지만 **Hello, world 유지 / Edited world 없음**이었다. HTTP 200만으로 새 배포 성공을 판정하면 안 된다.
+
+**판정: 요청한 바이브 코딩 베이스라인은 아직 미완성.** 새 문구의 프롬프트 수정과 저장은 성공했지만 기본 버튼의 빌드 설정 유지가 실패했다. 앱 설정 화면에서 확인한 항목은 생성 모델·리전·지침·연결 리소스이며, 배포 Docker/npm 버전의 영구 설정 경로는 확보하지 못했다. 이 경로를 확보하거나 플랫폼 템플릿이 수정되어 같은 인수 시험을 통과하기 전에는 교육생용 정상 베이스라인이라고 배포하지 않는다. gcloud로 Edited world를 다시 게시하는 방법으로 이 시험을 대신하지 않았다.
