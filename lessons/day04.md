@@ -201,3 +201,17 @@ service.metadata.name: must not contain tag delimiter '---'.
 **이번에 해결:** 개수 제한 가설 배제, 감사 로그로 서비스명 검증 오류 특정, 영문 이름으로 서비스 생성·빌드 시작 성공.
 
 **남은 문제:** 앱 빌더 자동 템플릿의 npm 설치 실패. 최종 실행 가능한 새 공개 URL과 배포본 속도 검증은 여전히 미완료다. 기존 서비스와 실제 Agent 연결 서버는 유지했다. 이름 문제를 npm 문제의 해결책으로 제시하지 않는다.
+
+## 14. Hello World로 분리한 npm 오류와 수정 실험
+
+사용자는 복잡한 기능을 제거하고 Hello World만 표시하는 앱도 배포되는지 확인해 달라고 요청했다. 최소 HTML 형식을 엄밀히 따지기보다 배포 오류 여부를 우선 확인하라는 후속 지시에 따라, 생성된 기본형으로 배포했다. 미리보기·업로드·Docker 준비와 파일 복사는 통과했지만 **총 37초 후 Step 6 `RUN npm install`에서 동일한 `edgesOut` 오류**가 발생했다. 따라서 제품이력 업무 코드와 Agent/subagent 실행이 이 실패의 재현에 필요하지 않음을 확인했다.
+
+기존 성공 앱과 신규 실패 앱은 같은 빌드 조건이 아니었다. 강사 계정의 기존 고정응답·제품이력 직접 배포본은 Node 22에서 frontend/backend를 각각 설치했다. 이후 교육생용 검증 ZIP은 Node 22.22.0·lockfile·`npm ci`를 사용했다. 앱 빌더 기본 템플릿은 Node 20/npm 10.8.2에서 루트 workspace 의존성을 새로 계산했다.
+
+npm 공식 [수정 PR #8448](https://github.com/npm/cli/pull/8448)은 `loadPeerSet`의 부모 없는 노드 참조 결함을 다루며 2025-08-28 병합됐다. [후속 이슈 #9787](https://github.com/npm/cli/issues/9787)에는 패키지 조합별 추가 재현·우회 사례가 있다. 이번 현상은 알려진 결함과 부합하지만 Google의 템플릿 내부 원인을 모두 확인한 것은 아니다.
+
+실패한 실제 ZIP을 Cloud Shell에서 받아 **업무 소스와 세 package.json을 유지한 채 Docker의 Node를 22.22.0, npm을 11.12.1로 고정**한 대조 빌드는 패키지 설치·Vite 빌드·최종 이미지 생성까지 성공했다. 이후 루트 lockfile과 `npm ci`를 사용하는 재현 가능한 최종 빌드를 추가 검증했다. [수정 내역·공식 근거·재현 프롬프트](../prompts/hello-world-build-repair.md)에 실행 절차를 정리했다.
+
+이 수정은 Cloud Shell에서 관리하는 배포 소스에 적용한 것이다. 앱 빌더 기본 배포 버튼의 자동 생성 템플릿이 영구 수정됐다는 뜻은 아니다. 기존 제품이력 앱·Agent의 배포와 속도 결과도 이번 Hello World의 성공으로 대체하지 않는다.
+
+**최종 검증:** lockfile과 `npm ci`를 사용한 실제 Linux Cloud Build도 SUCCESS. 성공 이미지 digest를 기존 Hello World 서비스에 적용해 Ready=True와 최신 리비전 트래픽 100%를 확인했다. 공개 브라우저에서 Hello, world가 표시됐고, 별도 인증 헤더 없는 외부 HTTP 요청도 200으로 본문을 확인했다. 해결된 범위는 이 Hello World 배포본이며, 제품이력 앱의 기본 버튼 배포는 별도 후속 작업이다.
