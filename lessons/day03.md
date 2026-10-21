@@ -4,6 +4,8 @@
 
 [상세 교안](../docs/deployment/text-sharing-build-failures.md) · [복사할 수정 요청문](../prompts/fix-npm-install.md) · [실습 기록지](../worksheets/day03-deployment-checklist.md) · [lockfile 참고 자료](../examples/deployment-lock/README.md)
 
+**새 앱을 만들 때에는 [기능 중심 단계별 프롬프트](../prompts/product-history-from-scratch.md)부터 시작합니다.** 전체 코드를 붙여 복원하는 대신 데이터·조회 규칙·문맥·실제 Agent 연결을 순서대로 생성합니다. 코드 참고는 A2A 요청 JSON 하나로 제한합니다.
+
 [Notion 3일차 전체 교안](https://app.notion.com/p/3ff123060ee781c28259cc1aa9cd63cc)에는 응답 속도·자료 갱신·세션·Chat 계정 제약·기술 비교가 있습니다. Notion은 별도 접근 권한이 필요할 수 있습니다. 이 문서는 그 수업에 덧붙이는 **배포 재현성 모듈**이며 기존 4시간 운영안을 새로 실시했다는 기록이 아닙니다.
 
 ## 먼저 기억할 점
