@@ -24,6 +24,7 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | [1일차](lessons/day01.md) | 데이터 규칙·Agent 지침·Preview·새 세션 실험 | 이용 가능 |
 | [3일차 보충 실습](lessons/day03.md) | 텍스트 앱 공유·npm 설치 실패·배포 재현성 | 이용 가능 |
 | [4일차 진행 기록](lessons/day04.md) | Cloud Agent로 교육 전환·배포 문제와 대응·주요 대화·실측·내일 계획 | 2026-10-21 실제 기록 |
+| [ZIP 반복 배포 3단계](docs/deployment/app-builder-zip-gcloud.md) | ZIP 다운로드 → 명령어 생성 → PC 명령으로 업로드·배포 | 교육생용 템플릿 |
 | [4일차 베이스라인·질문 기록지](worksheets/day04-baseline-and-questions.md) | 계정별 시작 상태·고정 정답·기능 추가 전후 비교 | 작성용 양식 |
 | [앱 빌더 기능 생성 프롬프트](prompts/product-history-from-scratch.md) | 전체 코드 복사 없이 제품이력 조회·문맥·실제 Agent 연결 요구 | 프롬프트 제공·실행 상태 문서 참조 |
 | [배포 오류 진단 교안](docs/deployment/text-sharing-build-failures.md) | 사례 분석·AI 수정 요청문·lockfile·검증 기록지 | 이용 가능 |
