@@ -22,10 +22,12 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | [교육 안내](docs/start.md) | 계정 준비와 공유 방식 | 이용 가능 |
 | [5일 커리큘럼](docs/curriculum.md) | 외부 코칭 5일 × 4시간 | 운영안 |
 | [1일차](lessons/day01.md) | 데이터 규칙·Agent 지침·Preview·새 세션 실험 | 이용 가능 |
+| [3일차 보충 실습](lessons/day03.md) | 텍스트 앱 공유·npm 설치 실패·배포 재현성 | 이용 가능 |
+| [배포 오류 진단 교안](docs/deployment/text-sharing-build-failures.md) | 사례 분석·AI 수정 요청문·lockfile·검증 기록지 | 이용 가능 |
 | [가상 데이터](samples/README.md) | 기본·정제 실습 CSV, 각 24행 | 이용 가능 |
 | [NotebookLM](notebooklm/README.md) | 가상 문서 4종, 질문 10개, 갱신 미션 | 이용 가능 |
 | [활동지](worksheets/) | PBL 기록지·NotebookLM 활동지·제출 양식 | 이용 가능 |
-| 2~5일차 상세 교안·강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
+| 2·4·5일차 상세 교안 및 나머지 강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
 
 ## 공유 원칙
 
@@ -35,3 +37,5 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 교육자료와 실습 시제품은 실제 회사 환경에서의 운영 완료를 의미하지 않습니다.
 
 자료 기준일: 2026-10-14. 수업 일정과 도구 접근 권한은 강사 안내를 따릅니다.
+
+2026-10-21 추가: 텍스트로 전달한 앱의 파일·의존성·환경 누락을 점검하는 [배포 재현성 자료](docs/deployment/text-sharing-build-failures.md)를 공개했습니다. 텍스트 공유 자체가 반드시 오류를 만든다는 뜻은 아니며, 확인한 사실과 원인 가설을 구분합니다.
