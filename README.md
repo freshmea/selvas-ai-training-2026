@@ -23,12 +23,14 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | [5일 커리큘럼](docs/curriculum.md) | 외부 코칭 5일 × 4시간 | 운영안 |
 | [1일차](lessons/day01.md) | 데이터 규칙·Agent 지침·Preview·새 세션 실험 | 이용 가능 |
 | [3일차 보충 실습](lessons/day03.md) | 텍스트 앱 공유·npm 설치 실패·배포 재현성 | 이용 가능 |
+| [4일차 진행 기록](lessons/day04.md) | Cloud Agent로 교육 전환·배포 문제와 대응·주요 대화·실측·내일 계획 | 2026-10-21 실제 기록 |
+| [4일차 베이스라인·질문 기록지](worksheets/day04-baseline-and-questions.md) | 계정별 시작 상태·고정 정답·기능 추가 전후 비교 | 작성용 양식 |
 | [앱 빌더 기능 생성 프롬프트](prompts/product-history-from-scratch.md) | 전체 코드 복사 없이 제품이력 조회·문맥·실제 Agent 연결 요구 | 프롬프트 제공·실행 상태 문서 참조 |
 | [배포 오류 진단 교안](docs/deployment/text-sharing-build-failures.md) | 사례 분석·AI 수정 요청문·lockfile·검증 기록지 | 이용 가능 |
 | [가상 데이터](samples/README.md) | 기본·정제 실습 CSV, 각 24행 | 이용 가능 |
 | [NotebookLM](notebooklm/README.md) | 가상 문서 4종, 질문 10개, 갱신 미션 | 이용 가능 |
 | [활동지](worksheets/) | PBL 기록지·NotebookLM 활동지·제출 양식 | 이용 가능 |
-| 2·4·5일차 상세 교안 및 나머지 강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
+| 2·5일차 저장소 상세 교안 및 나머지 강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
 
 ## 공유 원칙
 
@@ -40,3 +42,5 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 자료 기준일: 2026-10-14. 수업 일정과 도구 접근 권한은 강사 안내를 따릅니다.
 
 2026-10-21 추가: 텍스트로 전달한 앱의 파일·의존성·환경 누락을 점검하는 [배포 재현성 자료](docs/deployment/text-sharing-build-failures.md)를 공개했습니다. 텍스트 공유 자체가 반드시 오류를 만든다는 뜻은 아니며, 확인한 사실과 원인 가설을 구분합니다.
+
+2026-10-21 4일차 기록: 남은 교육을 Google Cloud Agent 중심으로 진행하고 공통 베이스라인에서 기능 추가·질문 검증을 시작한다는 오전 안내를 반영했습니다. [진행 기록](lessons/day04.md)은 기존 배포 앱의 성공과 새 앱 빌더의 미완료를 구분합니다. 전원 동일 환경 검증 완료를 의미하지 않습니다.
