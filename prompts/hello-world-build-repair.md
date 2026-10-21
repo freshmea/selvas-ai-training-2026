@@ -78,3 +78,16 @@ Google의 [Agent Studio 배포 안내](https://docs.cloud.google.com/gemini-ente
 5. 공개 URL을 다시 확인하니 HTTP 200이지만 **Hello, world 유지 / Edited world 없음**이었다. HTTP 200만으로 새 배포 성공을 판정하면 안 된다.
 
 **판정: 요청한 바이브 코딩 베이스라인은 아직 미완성.** 새 문구의 프롬프트 수정과 저장은 성공했지만 기본 버튼의 빌드 설정 유지가 실패했다. 앱 설정 화면에서 확인한 항목은 생성 모델·리전·지침·연결 리소스이며, 배포 Docker/npm 버전의 영구 설정 경로는 확보하지 못했다. 이 경로를 확보하거나 플랫폼 템플릿이 수정되어 같은 인수 시험을 통과하기 전에는 교육생용 정상 베이스라인이라고 배포하지 않는다. gcloud로 Edited world를 다시 게시하는 방법으로 이 시험을 대신하지 않았다.
+
+## 버튼 구조를 추적한 추가 조사
+
+현재 콘솔 페이지가 로드한 공개 JavaScript를 읽어, 버튼의 실제 생성·요청 경로를 확인했다. 콘솔 코드나 패키지 승인 필터를 변경하지 않았다.
+
+- 배포 파일 생성 함수는 두 단계 Node 20 Dockerfile과 루트 workspace manifest를 문자열 상수로 만든다. 현재 템플릿 리비전도 2026-09-02 상수다.
+- 프런트엔드 수집기는 index.html importmap 값에서 패키지 이름만 추출하고 버전을 제거한 뒤 모두 latest로 지정한다. 사용자 파일을 복사한 후 frontend/package.json과 Vite 설정을 다시 생성한다.
+- 재배포는 새 ZIP의 storageSource와 빈 dockerBuild 설정을 deploySource로 전달한다. 확인한 경로에는 기존 서비스의 사용자 Node/npm/buildConfig를 합치는 분기가 없다.
+- 모델의 index.html 패치는 승인 패키지 목록으로 importmap을 정규화한다. 실제 프롬프트로 요청한 Vitest/provider 항목은 제거됐고 주석만 남았다. 별도 TS 파일은 배포 수집 대상이 아니었다.
+
+실제 기본 이미지 버전을 출력하니 **Node 20.20.2/npm 10.8.2**였다. 과거 Windows Node 20.18.1 대조만으로 동일 환경이라고 보면 안 된다. Node 20.20.2로 맞춘 재현에서는 기본형, Vitest 단독, Vitest+native binding 모두 실패했다. Vitest와 @vitest/browser-webdriverio를 함께 명시한 별도 Linux 빌드는 설치·Vite 빌드·이미지 생성에 성공했다. 다만 이 조합은 승인 패키지 정규화 때문에 모델 편집본에 유지되지 않아 **기본 버튼 해결책으로 적용 완료했다고 보고하지 않았다**. 승인된 관련 패키지의 metadata도 확인했지만 해당 peer 충돌을 제어하는 근거 있는 대체 구성은 찾지 못했다.
+
+지원 경로의 다음 후보는 앱 빌더의 **GitHub 게시 버튼 → 고정 CI 빌드 → Cloud Run 자동 배포**다. 원래 Cloud Run 직접 배포 버튼과 다른 경로이므로 사용자 선택을 요청했다. 새 저장소·트리거·IAM 역할은 아직 생성하지 않았다. GitHub export가 기존 Dockerfile/CI 파일을 보존하는지도 전용 저장소에서 두 차례 내보내기로 검증해야 한다. 클라이언트 요청에는 파일 배열만 있지만 서버의 파일 삭제 동작은 아직 확인되지 않았다.
