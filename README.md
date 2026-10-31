@@ -25,7 +25,8 @@ Git 설치 없이 파일을 열어 읽거나 상단 **Code → Download ZIP**으
 | [가상 데이터](samples/README.md) | 기본·정제 실습 CSV, 각 24행 | 이용 가능 |
 | [NotebookLM](notebooklm/README.md) | 가상 문서 4종, 질문 10개, 갱신 미션 | 이용 가능 |
 | [활동지](worksheets/) | PBL 기록지·NotebookLM 활동지·제출 양식 | 이용 가능 |
-| 2~5일차 상세 교안·강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
+| 2일차 화면 교안·PPT·활동지 | ERP·SW 근거 조회와 A2A 채팅 검증 | 내부 Notion에서 제공 |
+| 3~5일차 상세 교안·강의 슬라이드 | 수업 진행에 맞추어 추가 | 작성 예정 |
 
 ## 공유 원칙
 
