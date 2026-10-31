@@ -1,0 +1,19 @@
+{
+  "dateKst": "2026-10-21",
+  "scope": "retained erp-sw-a2a-agent example; manifests match the subsequently provided 22-file source text, but student's deployed build source was not verified",
+  "providedTextManifestComparison": {"package.json": true, "frontend/package.json": true, "backend/package.json": true},
+  "generatedWith": {"node": "24.14.0", "npm": "11.12.1", "platform": "Windows"},
+  "lockfileVersion": 3,
+  "lockfileSha256": "1107C6E2B4BC3EA4E018DBE7E143F4526FD46C0065D652F87F6DA839C2F2146A",
+  "checks": [
+    {"command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund", "exitCode": 0},
+    {"node": "24.14.0", "npm": "11.12.1", "command": "npm ci --ignore-scripts --no-audit --no-fund", "exitCode": 0},
+    {"node": "24.14.0", "npm": "11.12.1", "command": "npm run build --workspace=frontend", "exitCode": 0},
+    {"node": "22.22.0", "npm": "10.8.2", "command": "npm ci --ignore-scripts --no-audit --no-fund", "exitCode": 0},
+    {"node": "22.22.0", "npm": "10.8.2", "command": "npm ci --include=dev --no-audit --no-fund", "exitCode": 0},
+    {"node": "22.22.0", "npm": "10.8.2", "command": "npm run build --workspace=frontend", "exitCode": 0, "vite": "8.3.4"}
+  ],
+  "warnings": ["node-domexception deprecation", "Vite future native configLoader __dirname warning", "large client bundle"],
+  "notVerified": ["other learners' modified manifests", "actual source archive used in the failed Cloud Build", "Linux Docker build: daemon unavailable", "Cloud Build redeployment", "backend runtime startup", "Gemini or Agent invocation"],
+  "systemNodeNpmUpgraded": false
+}
